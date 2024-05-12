@@ -1,5 +1,5 @@
 //import './footer.CssClasses';
-import '../footer.css';
+import './footer.css';
 import ElementCreator from '../../util/element-creator';
 
 const CssClasses = {
@@ -8,24 +8,23 @@ const CssClasses = {
 const TEXT = 'SPA example app';
 
 export default class FooterView {
-    constructor(){
+    constructor() {
         this.elementCreator = this.createView();
     }
 
     /**
-     * 
+     *
      * @returns {HTMLElement}
      */
-    getHtmlElement(){
+    getHtmlElement() {
         return this.elementCreator.getElement();
     }
 
-     /**
-     * 
+    /**
+     *
      * @returns {ElementCreator}
      */
-    createView(){
-
+    createView() {
         // element.textContent = TEXT;
         // element.classList.add(CssClasses.FOOTER);
 
@@ -36,7 +35,6 @@ export default class FooterView {
             callback: null,
         };
         const elementCreator = new ElementCreator(params);
-
 
         return elementCreator;
     }

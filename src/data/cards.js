@@ -33,6 +33,6 @@ const cardsInfo = [
         name: 'Шестая карточка',
         description: 'Полное и очень длинное описание для шестой карточки',
     },
-]
+];
 
 export default cardsInfo;

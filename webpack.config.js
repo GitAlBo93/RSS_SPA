@@ -3,7 +3,7 @@ const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const DotenvWebpackPlugin = require('dotenv-webpack');
-const CopyPlugin = require('copy-webpack-plugin');
+//const CopyPlugin = require('copy-webpack-plugin');
 //const ESLintPlugin = require('eslint-webpack-plugin');
 
 const baseConfig = {
@@ -12,12 +12,12 @@ const baseConfig = {
     module: {
         rules: [
             {
-                test: /\.css$/i,
+                test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
             },
             {
                 test: /\.[tj]s$/,
-                use: 'ts-loader',
+                use: 'babel-loader',
                 exclude: /node_modules/,
             }
         ],
