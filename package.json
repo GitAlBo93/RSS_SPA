@@ -8,7 +8,7 @@
         "build": "webpack --config ./webpack.config.js --env mode=prod",
         "lintTS": "eslint . --ext .ts",
         "lintJS": "eslint . --ext .js",
-        "prettier": "prettier --write src/**/*.ts"
+        "prettier": "prettier --write src/**/*.js"
     },
     "repository": {
         "type": "git",
