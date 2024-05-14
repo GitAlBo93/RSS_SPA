@@ -3,7 +3,7 @@ import './link.css';
 
 const CssClasses = {
     ITEM: 'nav-item',
-    ITEM_SELECTED: 'nav-item_selected',
+    ITEM_SELECTED: 'nav-item__selected',
 };
 
 export default class LinkView extends View {
@@ -25,6 +25,7 @@ export default class LinkView extends View {
         super(params);
 
         this.linkElements = linkElements;
+        this.configureView();
     }
         setSelectedStatus() {
             this.linkElements.forEach((linkElements) => linkElements.setNotSelectedStatus());
@@ -37,6 +38,11 @@ export default class LinkView extends View {
         setNotSelectedStatus(){
             const element = this.elementCreator.getElement();
             element.classList.remove(CssClasses.ITEM_SELECTED);
+        }
+
+        configureView(){
+            const element = this.elementCreator.getElement();
+            element.addEventListener('click', this.setSelectedStatus.bind(this));
         }
 
     }

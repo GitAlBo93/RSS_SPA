@@ -3,6 +3,8 @@ import './header.css';
 import View from '../view';
 import ElementCreator from '../../util/element-creator';
 import LinkView from './link/link-view';
+import IndexView from '../main/index/index-view';
+import MainView from '../main/main-view';
 //import { start } from 'repl';
 
 const CssClasses = {
@@ -17,7 +19,11 @@ const NamePages = {
 const START_PAGE_INDEX = 0;
 
 export default class HeaderView extends View{
-    constructor(){
+    /**
+     * 
+     * @param {import ('../main/main-view').default} mainComponent 
+     */
+    constructor(mainComponent){
         /**
          * @type {import ('../../util/element-creator').ElementParams}
          */
@@ -30,11 +36,13 @@ export default class HeaderView extends View{
         super(params);
 
         this.linkElement=[];
-        this.configureView();
+        this.configureView(mainComponent);
 
     }
-
-    configureView(){
+    /**
+     * @param {import ('../main/main-view').default} mainComponent 
+     */
+    configureView(mainComponent){
         const paramsNav = {
             tag: 'nav',
             classNames: [CssClasses.NAV],
@@ -45,12 +53,11 @@ export default class HeaderView extends View{
     
     this.elementCreator.addInnerElement(creatorNav);
     
+    const indexView = new IndexView();
     const pages = [
         {
             name: NamePages.INDEX,
-            callback: ()=>{
-
-            },
+            callback: ()=>mainComponent.setContent(indexView),
         },
         {
             name: NamePages.PRODUCT,
