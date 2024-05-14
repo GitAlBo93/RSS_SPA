@@ -37,6 +37,17 @@ export default class ElementCreator {
     }
 
     /**
+     * @param {HTMLElement | ElementCreator} element
+     */
+    addInnerElement(element){
+        if (element instanceof ElementCreator){
+            this.element.append(element.getElement());
+        } else {
+            this.element.append(element);
+        }
+    }
+
+    /**
      * @param {Array<string>} CssClasses
      */
     setCssClasses(CssClasses) {
